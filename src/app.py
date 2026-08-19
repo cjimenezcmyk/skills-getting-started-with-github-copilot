@@ -46,6 +46,9 @@ activities = {
 def root():
     return RedirectResponse(url="/static/index.html")
 
+# Validate student is not already signed up
+def is_student_signed_up(activity, email):
+    return email in activity["participants"]
 
 @app.get("/activities")
 def get_activities():
